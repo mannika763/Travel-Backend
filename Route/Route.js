@@ -7,7 +7,8 @@ const traveladmindatas = require("../Models/AdminData")
 router.get('/dashboard', async (req, res) => {
     // console.log("ccccccccccc")
   try {
-    await Data.find({}).sort({ createdAt: -1 });
+    const data = await Data.find({}).sort({ createdAt: -1 });
+    console.log(data)
     res.send(data);
   } catch (err) {
     res.status(400).json({ message: err });    
