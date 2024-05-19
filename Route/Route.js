@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 router.get('/dashboard', async (req, res) => {
     // console.log("ccccccccccc")
   try {
-    const data = await Data.find({}).sort({ createdAt: -1 });
+    const data = await Data.find({}).sort({ date: -1 });
     // console.log("dataaaa",data)
     res.send(data);
   } catch (err) {
