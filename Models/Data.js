@@ -24,10 +24,10 @@ const dataSchema = new Schema({
     required: false,
     default: Date.now
   },
-  budget: {
-    type: String, // Assuming budget is an array of numbers
-    required: false
-  },
+  // budget: {
+  //   type: String, // Assuming budget is an array of numbers
+  //   required: false
+  // },
   selectedFilters: {
     countries: {
       type: [Object],

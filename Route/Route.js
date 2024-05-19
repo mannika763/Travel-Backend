@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Data = require('../Models/Data')
 const traveladmindatas = require("../Models/AdminData")
+const jwt = require('jsonwebtoken');
 
 
 router.get('/dashboard', async (req, res) => {
@@ -57,8 +58,14 @@ router.post("/login", async (req, res) => {
           email: users.Email
           // You can include additional user properties here if needed
         };
+        const token = jwt.sign({
+          email: users.Email,
+         
+       },
+       'secretKey',
+       {expiresIn: '1h'});
   
-        res.status(200).json(currentUser);
+        res.status(200).json({currentUser, token});
       } else {
         res.status(404).json({ message: "User not found" });
       }
